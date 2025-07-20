@@ -132,17 +132,16 @@ st.markdown(
 # Set the page configuration for wide layout
 st.set_page_config(layout="wide")
 
-# --- Initialize session state for selected timeframe (for custom buttons) ---
+#custom buttons
 if 'selected_time_range' not in st.session_state:
     st.session_state.selected_time_range = "1D" # Default selection
 
-# --- Title and Welcome Message ---
+
 st.markdown("<h1 style='text-align: center;'>Project: CHRONOS - Stock Dashboard</h1>", unsafe_allow_html=True)
 
 
 st.markdown("<h2 style='text-align: center;'>Charting Historical Returns Online, Now Or Soon!</h2>", unsafe_allow_html=True)
 
-# --- Main Page Input Features ---
 st.header("Stock Selection & Period")
 
 # Ticker Symbol Input
@@ -159,7 +158,7 @@ period_options = {
     "MAX": {"period": "max", "interval": "1mo"} # Max available data, monthly interval
 }
 
-# --- Custom Time Range Buttons ---
+# Custom Time Range Buttons
 st.write("Select Time Range:")
 cols = st.columns(len(period_options))
 for i, (label, params) in enumerate(period_options.items()):
@@ -401,4 +400,3 @@ if company_info:
     st.write(f"**Business Summary:** {display_summary}")
 else:
     st.info(f"Could not fetch company information for {ticker_symbol}.")
-#-*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*__*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
